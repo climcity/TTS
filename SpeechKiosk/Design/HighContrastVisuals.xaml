@@ -1,0 +1,48 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- 고대비 테마: WCAG 2.1 AA 준수 -->
+    
+    <Color x:Key="HighContrastBg">#FF000000</Color>
+    <Color x:Key="HighContrastFg">#FFFFFFFF</Color>
+    <Color x:Key="HighContrastAccent">#FFFFFF00</Color>
+    
+    <SolidColorBrush x:Key="HCBackgroundBrush" Color="{StaticResource HighContrastBg}"/>
+    <SolidColorBrush x:Key="HCForegroundBrush" Color="{StaticResource HighContrastFg}"/>
+    <SolidColorBrush x:Key="HCAccentBrush" Color="{StaticResource HighContrastAccent}"/>
+    
+    <Style TargetType="Window">
+        <Setter Property="Background" Value="{StaticResource HCBackgroundBrush}"/>
+    </Style>
+    
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource HCBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource HCForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource HCForegroundBrush}"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource HCAccentBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource HCBackgroundBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource HCBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource HCForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource HCForegroundBrush}"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="CaretBrush" Value="{StaticResource HCForegroundBrush}"/>
+    </Style>
+    
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource HCForegroundBrush}"/>
+    </Style>
+    
+    <Style TargetType="Slider">
+        <Setter Property="Foreground" Value="{StaticResource HCAccentBrush}"/>
+    </Style>
+    
+</ResourceDictionary>
