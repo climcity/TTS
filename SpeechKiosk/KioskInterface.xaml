@@ -1,0 +1,113 @@
+<Window x:Class="SpeechKiosk.KioskInterface"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="음성 안내 키오스크" Height="700" Width="900"
+        WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <Style x:Key="BigButtonStyle" TargetType="Button">
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="15,10"/>
+        </Style>
+        
+        <Style x:Key="InputAreaStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="AcceptsReturn" Value="True"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- 헤더 영역 -->
+        <Grid Grid.Row="0" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="🔊 접근성 음성 키오스크" FontSize="28" FontWeight="Bold" 
+                       VerticalAlignment="Center" Grid.Column="0"/>
+            
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center">
+                <Button Content="고대비" Width="80" Height="40" Margin="5"
+                        x:Name="ContrastToggleBtn" TabIndex="1"/>
+                <Button Content="A+" Width="50" Height="40" Margin="5"
+                        x:Name="FontIncreaseBtn" TabIndex="2"/>
+                <Button Content="A-" Width="50" Height="40" Margin="5"
+                        x:Name="FontDecreaseBtn" TabIndex="3"/>
+            </StackPanel>
+        </Grid>
+        
+        <!-- 텍스트 입력 영역 -->
+        <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="2" CornerRadius="5" Padding="5">
+            <TextBox x:Name="MessageInputBox" 
+                     Style="{StaticResource InputAreaStyle}"
+                     TabIndex="4"
+                     VerticalScrollBarVisibility="Auto"/>
+        </Border>
+        
+        <!-- 주요 작업 버튼들 -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,10">
+            <Button Content="🔊 음성출력" Style="{StaticResource BigButtonStyle}" 
+                    x:Name="VocalizeBtn" TabIndex="5"/>
+            <Button Content="⏹ 정지" Style="{StaticResource BigButtonStyle}" 
+                    x:Name="StopBtn" TabIndex="6"/>
+            <Button Content="🗑 초기화" Style="{StaticResource BigButtonStyle}" 
+                    x:Name="ClearBtn" TabIndex="7"/>
+        </StackPanel>
+        
+        <!-- 설정 영역 -->
+        <Grid Grid.Row="3" Margin="0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- 속도 조절 -->
+            <TextBlock Text="속도:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="5"/>
+            <Slider x:Name="SpeedSlider" Grid.Row="0" Grid.Column="1" 
+                    Minimum="-10" Maximum="10" Value="0" 
+                    TickFrequency="1" IsSnapToTickEnabled="True"
+                    TabIndex="8" Margin="5"/>
+            
+            <!-- 볼륨 조절 -->
+            <TextBlock Text="볼륨:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="5"/>
+            <Slider x:Name="VolumeSlider" Grid.Row="1" Grid.Column="1" 
+                    Minimum="0" Maximum="100" Value="80" 
+                    TickFrequency="5" IsSnapToTickEnabled="True"
+                    TabIndex="9" Margin="5"/>
+            
+            <!-- 음성 선택 -->
+            <TextBlock Text="음성:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="5"/>
+            <ComboBox x:Name="VoiceSelector" Grid.Row="2" Grid.Column="1" 
+                      Height="35" TabIndex="10" Margin="5"/>
+        </Grid>
+        
+        <!-- 빠른 문구 버튼들 -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <Button Content="안녕하세요" Width="130" Height="45" Margin="5" 
+                    x:Name="Phrase1Btn" TabIndex="11"/>
+            <Button Content="도움이 필요하신가요?" Width="180" Height="45" Margin="5" 
+                    x:Name="Phrase2Btn" TabIndex="12"/>
+            <Button Content="감사합니다" Width="130" Height="45" Margin="5" 
+                    x:Name="Phrase3Btn" TabIndex="13"/>
+        </StackPanel>
+    </Grid>
+</Window>

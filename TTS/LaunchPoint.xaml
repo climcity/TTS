@@ -1,0 +1,14 @@
+<Application x:Class="TTS.LaunchPoint"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="KioskDisplay.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styling/StandardVisualTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <System:Double x:Key="GlobalFontSize" xmlns:System="clr-namespace:System;assembly=mscorlib">16.0</System:Double>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

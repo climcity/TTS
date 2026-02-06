@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechKiosk", "SpeechKiosk\SpeechKiosk.csproj", "{A7F3B8C2-9E1D-4F6A-B5C8-7D2E3F4A9B1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7F3B8C2-9E1D-4F6A-B5C8-7D2E3F4A9B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F3B8C2-9E1D-4F6A-B5C8-7D2E3F4A9B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F3B8C2-9E1D-4F6A-B5C8-7D2E3F4A9B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F3B8C2-9E1D-4F6A-B5C8-7D2E3F4A9B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1C4E7F2-8A3D-4E9B-A6C5-2F8D1E3B7A4C}
+	EndGlobalSection
+EndGlobal
