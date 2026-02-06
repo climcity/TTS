@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Windows;
 using TTS.VoiceEngine;
 
@@ -21,7 +22,7 @@ namespace TTS
                 _welcome = new VoiceOrchestrator();
                 
                 var voices = _welcome.QueryAvailableVoices();
-                var ko = voices.Find(v => v.IsKoreanVoice);
+                var ko = voices.FirstOrDefault(v => v.IsKoreanVoice);
                 
                 if (ko != null)
                 {

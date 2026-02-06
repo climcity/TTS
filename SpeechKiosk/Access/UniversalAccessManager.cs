@@ -18,8 +18,7 @@ namespace SpeechKiosk.Access
         public static void ConfigureAccessibilityAttributes(
             UIElement element, 
             string automationName, 
-            string helpMessage = null,
-            AutomationLiveSetting liveLevel = AutomationLiveSetting.Off)
+            string helpMessage = null)
         {
             if (element == null)
                 throw new ArgumentNullException(nameof(element));
@@ -29,11 +28,6 @@ namespace SpeechKiosk.Access
             if (!string.IsNullOrEmpty(helpMessage))
             {
                 AutomationProperties.SetHelpText(element, helpMessage);
-            }
-
-            if (liveLevel != AutomationLiveSetting.Off)
-            {
-                AutomationProperties.SetLiveSetting(element, liveLevel);
             }
         }
 
@@ -123,10 +117,14 @@ namespace SpeechKiosk.Access
         {
             if (element == null) return;
 
+            // .NET 4.5에서는 LiveRegionChanged가 지원되지 않으므로
+            // AutomationProperties.SetName을 통해 메시지를 전달
+            AutomationProperties.SetName(element, message);
+            
             var peer = UIElementAutomationPeer.FromElement(element);
             if (peer != null)
             {
-                peer.RaiseAutomationEvent(AutomationEvents.LiveRegionChanged);
+                peer.RaiseAutomationEvent(AutomationEvents.TextPatternOnTextChanged);
             }
         }
 

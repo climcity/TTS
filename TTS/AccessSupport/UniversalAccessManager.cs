@@ -57,7 +57,6 @@ namespace TTS.AccessSupport
             
             AutomationProperties.SetName(b, name);
             AutomationProperties.SetAutomationId(b, $"btn_{name.Replace(" ", "_")}");
-            AutomationProperties.SetLiveSetting(b, AutomationLiveSetting.Polite);
         }
         
         public void ConfigureTextInputAccessibility(TextBox t, string label, string desc)
@@ -66,7 +65,6 @@ namespace TTS.AccessSupport
             
             AutomationProperties.SetName(t, label);
             AutomationProperties.SetHelpText(t, desc);
-            AutomationProperties.SetLiveSetting(t, AutomationLiveSetting.Polite);
         }
         
         public void OptimizeSliderAccessibility(Slider s, string label, string unit)
@@ -85,12 +83,9 @@ namespace TTS.AccessSupport
             AutomationProperties.SetHelpText(s, help);
         }
         
-        public void AnnounceToScreenReader(UIElement e, string msg,
-            AutomationLiveSetting urgency = AutomationLiveSetting.Polite)
+        public void AnnounceToScreenReader(UIElement e, string msg)
         {
             if (e == null) return;
-            
-            AutomationProperties.SetLiveSetting(e, urgency);
             
             if (e is TextBlock tb)
                 tb.Text = msg;
